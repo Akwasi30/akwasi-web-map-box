@@ -1,72 +1,3 @@
-var LandUseLookup = (code) => {
-  switch (code) {
-    case 1:
-      return {
-        color: '#f4f455',
-        description: '1 & 2 Family',
-      };
-    case 2:
-      return {
-        color: '#f7d496',
-        description: 'Multifamily Walk-up',
-      };
-    case 3:
-      return {
-        color: '#FF9900',
-        description: 'Multifamily Elevator',
-      };
-    case 4:
-      return {
-        color: '#f7cabf',
-        description: 'Mixed Res. & Commercial',
-      };
-    case 5:
-      return {
-        color: '#ea6661',
-        description: 'Commercial & Office',
-      };
-    case 6:
-      return {
-        color: '#d36ff4',
-        description: 'Industrial & Manufacturing',
-      };
-    case 7:
-      return {
-        color: '#dac0e8',
-        description: 'Transportation & Utility',
-      };
-    case 8:
-      return {
-        color: '#5CA2D1',
-        description: 'Public Facilities & Institutions',
-      };
-    case 9:
-      return {
-        color: '#8ece7c',
-        description: 'Open Space & Outdoor Recreation',
-      };
-    case 10:
-      return {
-        color: '#bab8b6',
-        description: 'Parking Facilities',
-      };
-    case 11:
-      return {
-        color: '#5f5f60',
-        description: 'Vacant Land',
-      };
-    case 12:
-      return {
-        color: '#5f5f60',
-        description: 'Other',
-      };
-    default:
-      return {
-        color: '#5f5f60',
-        description: 'Other',
-      };
-  }
-};
 
 mapboxgl.accessToken= 'pk.eyJ1IjoiYWt3YXNpMzAiLCJhIjoiY2t6aG5wN2Q1NDNndTJvcDQ0ZzBkbzQyOSJ9.Om7ek_mM4fe3ClIt_IrOIw'
 
@@ -177,31 +108,6 @@ paint: {
 });
 })
 
-map.on('click', function (e) {
-var features = map.queryRenderedFeatures(e.point)
-var featureofinterestProperties=features[0].properties
-console.log('the features',features)
 
-var borough = featureofinterestProperties ['New_York_City_Population_By_Community_Districts_1980']
-var cdNumber = featureofinterestProperties ['New_York_City_Population_By_Community_Districts_CD']
-var cdName = featureofinterestProperties ['cd_name']
-$('.sidebar').html(`
-      <h4>${borough}> Community District ${cdNumber}</h3>
-       <p>${cdName}</p>
-       <p>2010 Population:${cdName}
-
-`)
-
-})
-
-
-})
-var map = new mapboxgl.Map({
-  container:'mapContainer', // HTML container id
-  style:'mapbox://styles/mapbox/dark-v9', // style URL
-  center: nyu, //starting position as [lng, lat]
-  maxzoom: 10
-  //minZoom: 9,
-  // maxZoom:14,
 
 })
